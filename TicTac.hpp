@@ -2,7 +2,7 @@
 #define X 3
 #define Y 3
 
-#define check if (vert[0] && vert[0]==vert[1] && vert[0]==vert[2]) return 1;
+#define check if (vert[0] && vert[0]==vert[1] && vert[0]==vert[2]) return vert[0];
 
 class Mind{
 protected:
