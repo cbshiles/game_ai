@@ -26,3 +26,17 @@ Color* blue = new Color(17,31,92);
 Color* red = new Color(227,51,38);
 Color* yellow = new Color(244,188,43);
 Color* black = new Color(0,0,0);
+
+// Initialization routine.
+void GL_init(void) 
+{
+    // Set background (or clearing) color.
+    glClearColor(1.0, 1.0, .0, 0.0); 
+
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClearDepth(1.0);
+
+    glDepthFunc(GL_LEQUAL);
+
+    glewInit(); //Don't forget this guy
+}

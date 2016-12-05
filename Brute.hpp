@@ -28,7 +28,6 @@ class Brute : public Player {
   Rating rec_move(int ti, int tj,int cplayer){
     //printf(" %d %d\n",cplayer,(cplayer%2)+1);
 
-
     board[ti][tj] = cplayer;
 
     // printf("\nrecursive level\n");
@@ -37,7 +36,7 @@ class Brute : public Player {
     Rating ans;
     
     if (check_win() > 0) ans = Rating(1);
-    //The above line is only valid because you can only win on your turn in tic tac toe, flipped to opposer viewpoint for convenience
+    //The above line is only valid because you can only win on your turn in tic tac toe
 
     else {
       int i,j,s=0;
