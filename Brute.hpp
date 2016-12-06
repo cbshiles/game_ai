@@ -75,6 +75,7 @@ public:
 	    //	  printf("Inside: %d %d --\n",i,j);
 	    r = rec_move(i,j,g->cplayer());
 	    r.flipSides();
+	    r.print();
 	    if (!s++ || r.better_than(best)) {
 	      best = r, bi=i, bj=j;
 	    }}}}

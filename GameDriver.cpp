@@ -6,7 +6,7 @@
 #include "Human.hpp"
 
 Player *a = new Human();
-Player *b = new Brute();
+Player *b = new Player();
 Game mainGame(a,b);
 Screen *s;
 

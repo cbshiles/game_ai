@@ -1,7 +1,6 @@
 #define loop(D, L) for(D=0; D<(L); D++)
 #define X 3
 #define Y 3
-#define SQR 300 //1 dimension of a square
 
 #define check if (vert[0] && vert[0]==vert[1] && vert[0]==vert[2]) return vert[0];
 
@@ -166,8 +165,9 @@ public:
 	if (board[j][i]) {printf("trying\n"); drawShape(j,i);}
       }}
   glFlush();
-  glutPostRedisplay();
+  //not sure when/why needed
   }
+
 };
 
 class Game : public Mind {
@@ -176,11 +176,10 @@ private:
   char valid;
   Player * player[2];
 
-
-
 #define MAX_TRIES 9
   void game_step(){
 
+    printf("step:%d\n",step);
     update(player[icp]);
 
 
@@ -191,17 +190,19 @@ private:
   	{printf("Player %d won't make a valid move.\n", cplayer()); end_game(!icp+1);}
     }
 
-    print_board(); screen->draw();
+    print_board(); 
     
     //All this needs to be done either way (below here)
-    
+    printf("AA\n");
+    printf("AB%d\n",check_win());    
     if (check_win()) {print_board(); end_game(cplayer());}
 
-    if(humans)update(screen); //#BAD
-    
+    if(humans) {update(screen); screen->draw();}//#BAD
+    printf("BA\n");    
     icp = !icp, valid = 0; //for next move
 
     step++; if (step==9) {print_board(); end_game(0);}
+    printf("end of func\n");
   }
 
   void end_game(int winner){
