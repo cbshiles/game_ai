@@ -9,8 +9,10 @@ public:
   char better_than(Rating r){
     if (preference > r.preference) return 1;
     else if (preference < r.preference) return 0;
-    else return preference*priority < r.preference*r.priority;
-    //creates something odd in complex situations..
+    else {
+      if (preference > 0) return priority < r.priority;
+      else return priority > r.priority;
+    }
   }
 
   void flipSides(){
@@ -30,6 +32,8 @@ class Brute : public Player {
 
     board[ti][tj] = cplayer;
 
+    printf("Entering layer. (%d)\n", cplayer);
+    print_board();
     // printf("\nrecursive level\n");
     //     print_board();
 
@@ -47,7 +51,7 @@ class Brute : public Player {
 	  if(! board[i][j]){
 	    full = 0;
 	    r = rec_move(i,j,(cplayer%2)+1);
-	    //	    r.print();
+	    r.print();
 	    if (!s++ || r.better_than(best)) {
 	      //	      printf("New best! (for) player %d\n",cplayer);
 	      best = r;
@@ -60,6 +64,8 @@ class Brute : public Player {
     board[ti][tj] = 0;
     ans.flipSides();
 
+    printf("Exiting layer. (%d)\n", cplayer);
+    
     return ans;
   }
 

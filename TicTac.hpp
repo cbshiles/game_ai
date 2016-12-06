@@ -163,7 +163,7 @@ public:
 
     int i,j;
     loop(i,3){loop(j,3){
-	if (board[j][i]) {printf("trying\n"); drawShape(j,i);}
+	if (board[j][i]) {drawShape(j,i);}
       }}
   glFlush();
   glutPostRedisplay();
