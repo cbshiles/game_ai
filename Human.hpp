@@ -1,6 +1,3 @@
-
-
-
 class Human : public Player {
 public:
 
