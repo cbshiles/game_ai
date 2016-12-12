@@ -1,0 +1,69 @@
+#define loop(D, L) for(D=0; D<(L); D++)
+#define X 7
+#define Y 6
+#define SQR 125 //1 dimension of a square
+
+class Mind{
+protected:
+  char board[X][Y];
+
+  char check_win(){int i,j;
+    //horizontals
+    char ci=0,nci; int cs=0; //current item, current streak
+    loop(i,Y){
+      loop(j,X){
+	if (nci =  board[j][i]){
+	  if (nci == ci && ++cs == 4) return ci;
+	  else {ci=nci; cs=1;}
+	}
+	else cs=ci=0;
+      }
+      cs=ci=0;
+    }
+
+    //verts
+    loop(i,X){
+      loop(j,Y){
+	if (nci =  board[i][j]){
+	  if (nci == ci && ++cs == 4) return ci;
+	  else {ci=nci; cs=1;}
+	}
+	else cs=ci=0;
+      }
+      cs=ci=0;
+    }
+
+    //diags
+    loop(i,X-3){
+
+      loop
+
+    }
+
+	char check_win(){int i,j,k,s,add;
+    loop(i,2){
+      loop(j,3){loop(k,3){vert[k] = i?board[j][k]:board[k][j];}
+	check}
+      
+      if (i) s=0, add=1;
+      else s=2, add=-1;
+      loop(j,3){
+	vert[j] = board[j][s];
+	s += add;}
+      check}
+    return 0;
+  }
+
+  void print_board(){
+    int i,j; loop(i,3){
+      if (i) printf("\n-----------\n");
+      else printf("\n\n\n\n");
+      loop(j,3){
+	if (j) printf("|");
+	char s = board[j][i];
+	printf(" %c ", s?(s==1?'X':'O'):' ');
+      }}
+    printf("\n");
+  }
+
+};

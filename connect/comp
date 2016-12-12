@@ -1,0 +1,1 @@
+g++ -std=c++11 $1.cpp -lGL -lGLU -lGLEW -lglut -lm -Wno-write-strings -o $1
