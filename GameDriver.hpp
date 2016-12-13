@@ -1,8 +1,3 @@
-#include <stdio.h>
-
-#include "MyGL.hpp"
-#include "TicTac.hpp"
-#include "Brute.hpp"
 #include "Human.hpp"
 
 Player *a = new Human();
@@ -25,7 +20,7 @@ void resize(int x, int y){
 
 int main(int argc, char* argv[]){
   if (mainGame.areHumans()){
-    s = new Screen(900, 900);
+    s = new Screen(SQR*X, SQR*Y, GAME);
     mainGame.loadScreen(s);
   }
   mainGame.play_game();
